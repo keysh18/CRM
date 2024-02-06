@@ -14,7 +14,26 @@ namespace CRM.api.Controllers
             return Ok();
         }
 
+        [HttpPost]
+        [Route("add")]
+        public async Task<IActionResult> AddNewCustomerAsync()
+        {
+            return Ok();
+        }
 
+        [HttpPut]
+        [Route("edit")]
+        public async Task<IActionResult> EditCustomerAsync()
+        {
+            return Ok();
+        }
+
+        [HttpDelete]
+        [Route("remove/{id}")]
+        public async Task<IActionResult> RemoveCustomerAsync([FromRoute] string id)
+        {
+            return Ok();
+        }
     }
 
 }
