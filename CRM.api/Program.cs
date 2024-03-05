@@ -1,3 +1,6 @@
+using CRM.Db;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,9 +11,9 @@ builder.Logging
 
 builder.Services.AddControllers();
 
-builder.Services.AddDbContext<WLSSDbContext>(opt =>
+builder.Services.AddDbContext<CRMDbContext>(opt =>
     opt.UseSqlServer(
-            builder.Configuration.GetConnectionString("WLSSCoreDatabase"),
+            builder.Configuration.GetConnectionString("CRMdb"),
             config => config.EnableRetryOnFailure()
         )
 );
