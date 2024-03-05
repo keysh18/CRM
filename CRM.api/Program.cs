@@ -1,3 +1,4 @@
+using CRM.api.Services;
 using CRM.Db;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,6 +21,8 @@ builder.Services.AddDbContext<CRMDbContext>(opt =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<ICustomerService, CustomerService>();
 
 var app = builder.Build();
 

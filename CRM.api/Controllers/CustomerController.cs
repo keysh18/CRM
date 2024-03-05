@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CRM.api.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CRM.api.Controllers
 {
@@ -7,11 +8,19 @@ namespace CRM.api.Controllers
 
     public class CustomerController: ControllerBase
     {
+        private readonly ICustomerService _customerService;
+
+        public CustomerController(ICustomerService customerService)
+        {
+            _customerService = customerService;
+        }
+
         [HttpGet]
         [Route("all")]
         public async Task<IActionResult> GetAllCustomersAsync()
         {
-            return Ok();
+            var customers = await _customerService.GetAllCustomersAsync();
+            return Ok(customers);
         }
 
         [HttpPost]
