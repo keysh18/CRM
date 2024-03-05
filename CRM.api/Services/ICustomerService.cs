@@ -6,7 +6,12 @@ namespace CRM.api.Services
 {
     public interface ICustomerService 
     {
-        public Task<CustomerDto> GetAllCustomersAsync();
-    }
+        public Task<IList<CustomerDto>> GetAllCustomersAsync();
+        
+        public Task<CustomerDto> AddCustomerAsync();
 
+        public Task<CustomerDto> EditCustomerAsync();
+
+        public Task<bool> DeleteCustomerAsync();
+    }
 }

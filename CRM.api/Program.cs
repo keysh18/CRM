@@ -11,7 +11,7 @@ builder.Logging
 
 
 builder.Services.AddControllers();
-
+builder.Services.AddCors();
 builder.Services.AddDbContext<CRMDbContext>(opt =>
     opt.UseSqlServer(
             builder.Configuration.GetConnectionString("CRMdb"),
@@ -26,12 +26,20 @@ builder.Services.AddScoped<ICustomerService, CustomerService>();
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetService<CRMDbContext>();
+    context?.Database.Migrate();
+}
+
 // Configure the HTTP request pipeline.
 
 app.UseSwagger();
 app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
+app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().SetIsOriginAllowed(o => true));
+app.UseForwardedHeaders();
 
 app.UseAuthorization();
 
