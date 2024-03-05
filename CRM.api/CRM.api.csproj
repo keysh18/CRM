@@ -19,8 +19,4 @@
     <ProjectReference Include="..\CRM.Db\CRM.Db.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\CRM.Db\CRM.Db.csproj" />
-  </ItemGroup>
-
 </Project>
