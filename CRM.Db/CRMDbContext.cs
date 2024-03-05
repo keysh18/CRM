@@ -9,5 +9,9 @@ namespace CRM.Db
 {
     public class CRMDbContext: DbContext
     {
+        public CRMDbContext(DbContextOptions options) : base(options)
+        {
+
+        }
     }
 }
