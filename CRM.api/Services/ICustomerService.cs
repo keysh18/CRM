@@ -8,10 +8,10 @@ namespace CRM.api.Services
     {
         public Task<IList<CustomerDto>> GetAllCustomersAsync();
         
-        public Task<CustomerDto> AddCustomerAsync();
+        public Task<CustomerDto> AddCustomerAsync(CustomerDto customerDto);
 
-        public Task<CustomerDto> EditCustomerAsync();
+        public Task<CustomerDto> EditCustomerAsync(int customerId, CustomerDto editedCustomerDto);
 
-        public Task<bool> DeleteCustomerAsync();
+        public Task<bool> DeleteCustomerAsync(int customerId);
     }
 }
