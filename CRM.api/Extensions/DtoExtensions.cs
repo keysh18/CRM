@@ -9,8 +9,11 @@ public static class DtoExtensions
     {
         return new CustomerDto()
         {
+            Id = customer.Id,
             Name = customer.Name,
-            Email = customer.Email
+            Email = customer.Email,
+            Company = customer.Company,
+            PhoneNumber = customer.PhoneNumber
             //TODO: Add additional properties here.
         };
     }
