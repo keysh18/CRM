@@ -21,7 +21,7 @@ namespace CRM.api.Services
             return allUsers.ToDto();
         }
 
-        public Task<CustomerDto> AddCustomerAsync(CustomerDto customerDto)
+        public async Task<CustomerDto> AddCustomerAsync(CustomerDto customerDto)
         {
             var newCustomer = new Customer
             {
@@ -42,7 +42,7 @@ namespace CRM.api.Services
             return newCustomer.ToDto();
         }
 
-        public Task<CustomerDto> EditCustomerAsync(int customerId, CustomerDto editedCustomerDto)
+        public async Task<CustomerDto> EditCustomerAsync(int customerId, CustomerDto editedCustomerDto)
         {
             // Retrieve the existing customer from the database
             var existingCustomer = await _db.Customers.FindAsync(customerId);
@@ -67,7 +67,7 @@ namespace CRM.api.Services
             return existingCustomer.ToDto();
         }
 
-        public Task<bool> DeleteCustomerAsync(int customerId)
+        public async Task<bool> DeleteCustomerAsync(int customerId)
         {
             // Retrieve the existing customer from the database
             var existingCustomer = await _db.Customers.FindAsync(customerId);
