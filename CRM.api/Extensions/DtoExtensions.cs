@@ -22,4 +22,25 @@ public static class DtoExtensions
     {
         return customers.Select(customer => customer.ToDto()).ToList();
     }
+
+    public static Project ToDto(this Project project)
+    {
+        return new Project()
+        {
+            Id = project.Id,
+            ProjectId = project.ProjectId,
+            Status = project.Status,
+            Budget = project.Budget,
+            lastUpdated = project.lastUpdated,
+            Notes = project.Notes,
+            startDate = project.startDate,
+            endDate = project.endDate,
+            //TODO: Add additional properties here.
+        };
+    }
+
+    public static IList<Project> ToDto(this IList<Project> project)
+    {
+        return project.Select(project => project.ToDto()).ToList();
+    }
 }
