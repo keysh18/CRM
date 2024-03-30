@@ -25,6 +25,7 @@ namespace CRM.api.Services
         {
             var newCustomer = new Customer
             {
+                Id = customerDto.Id,
                 Name = customerDto.Name,
                 Email = customerDto.Email,
                 Company = customerDto.Company,
@@ -42,15 +43,15 @@ namespace CRM.api.Services
             return newCustomer.ToDto();
         }
 
-        public async Task<CustomerDto> EditCustomerAsync(int customerId, CustomerDto editedCustomerDto)
+        public async Task<CustomerDto> EditCustomerAsync(CustomerDto editedCustomerDto)
         {
             // Retrieve the existing customer from the database
-            var existingCustomer = await _db.Customers.FindAsync(customerId);
+            var existingCustomer = await _db.Customers.FindAsync(editedCustomerDto.Id);
 
             if (existingCustomer == null)
             {
                 // Handle the case where the customer doesn't exist
-                throw new ArgumentException("Customer not found", nameof(customerId));
+                throw new ArgumentException("Customer not found", nameof(editedCustomerDto.Id));
             }
 
             // Update the properties of the existing customer entity based on the editedCustomerDto
