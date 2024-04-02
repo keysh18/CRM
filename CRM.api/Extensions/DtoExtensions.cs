@@ -23,9 +23,9 @@ public static class DtoExtensions
         return customers.Select(customer => customer.ToDto()).ToList();
     }
 
-    public static Project ToDto(this Project project)
+    public static ProjectDto ToDto(this Project project)
     {
-        return new Project()
+        return new ProjectDto()
         {
             Id = project.Id,
             ProjectId = project.ProjectId,
@@ -39,8 +39,8 @@ public static class DtoExtensions
         };
     }
 
-    public static IList<Project> ToDto(this IList<Project> project)
+    public static IList<ProjectDto> ToDto(this IList<Project> projects)
     {
-        return project.Select(project => project.ToDto()).ToList();
+        return projects.Select(project => project.ToDto()).ToList();
     }
 }

@@ -1,3 +1,4 @@
+using CRM.api.Dtos;
 using CRM.api.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,23 +26,26 @@ namespace CRM.api.Controllers
 
         [HttpPost]
         [Route("add")]
-        public async Task<IActionResult> AddNewProjectAsync()
+        public async Task<IActionResult> AddNewProjectAsync([FromBody] ProjectDto newProject)
         {
-            return Ok();
+            var project = await _projectService.AddProjectAsync(newProject);
+            return Ok(project);
         }
 
         [HttpPut]
         [Route("edit")]
-        public async Task<IActionResult> EditProjectAsync()
+        public async Task<IActionResult> EditProjectAsync([FromBody] ProjectDto editedProjectDto)
         {
-            return Ok();
+            var project = await _projectService.EditProjectAsync(editedProjectDto);
+            return Ok(project);
         }
 
         [HttpDelete]
         [Route("remove/{id}")]
-        public async Task<IActionResult> RemoveProjectAsync([FromRoute] string id)
+        public async Task<IActionResult> RemoveProjectAsync([FromRoute] int id)
         {
-            return Ok();
+            var success = await _projectService.DeleteProjectAsync(id);
+            return Ok(success);
         }
     }
 

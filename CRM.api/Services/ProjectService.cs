@@ -47,15 +47,15 @@ namespace CRM.api.Services
         }
 
 
-        public async Task<ProjectDto> EditProjectAsync(int projectId, ProjectDto editedProjectDto)
+        public async Task<ProjectDto> EditProjectAsync(ProjectDto editedProjectDto)
         {
             // Retrieve the existing project from the database
-            var existingProject = await _db.Projects.FindAsync(projectId);
+            var existingProject = await _db.Projects.FindAsync(editedProjectDto.Id);
 
             if (existingProject == null)
             {
                 // Handle the case where the project doesn't exist
-                throw new ArgumentException("Project not found", nameof(projectId));
+                throw new ArgumentException("Project not found", nameof(editedProjectDto.Id));
             }
 
             // Update the properties of the existing project entity based on the editedProjectDto

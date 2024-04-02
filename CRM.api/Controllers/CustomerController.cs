@@ -44,7 +44,7 @@ namespace CRM.api.Controllers
         [Route("remove/{id}")]
         public async Task<IActionResult> RemoveCustomerAsync([FromRoute] int id)
         {
-            var success = _customerService.DeleteCustomerAsync(id);
+            var success = await _customerService.DeleteCustomerAsync(id);
             return Ok(success);
         }
     }
