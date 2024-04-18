@@ -33,8 +33,8 @@ namespace CRM.api.Controllers
         }
 
         [HttpPut]
-        [Route("edit")]
-        public async Task<IActionResult> EditCustomerAsync([FromBody] CustomerDto editedCustomerDto)
+        [Route("edit/{id}")]
+        public async Task<IActionResult> EditCustomerAsync([FromBody] CustomerDto editedCustomerDto int id)
         {
             var customer = await _customerService.EditCustomerAsync(editedCustomerDto);
             return Ok(customer);
