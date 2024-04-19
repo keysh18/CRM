@@ -29,9 +29,9 @@ namespace CRM.api.Services
                 ProjectId = projectDto.ProjectId,
                 Status = projectDto.Status,
                 Budget = projectDto.Budget,
-                lastUpdated = projectDto.lastUpdated,
+                lastUpdated = DateTime.Today,
                 Notes = projectDto.Notes,
-                startDate = projectDto.startDate,
+                startDate = DateTime.Today,
                 endDate = projectDto.endDate
                 // Populate other properties as needed
             };
@@ -62,9 +62,9 @@ namespace CRM.api.Services
             existingProject.ProjectId = editedProjectDto.ProjectId;
             existingProject.Status = editedProjectDto.Status;
             existingProject.Budget = editedProjectDto.Budget;
-            existingProject.lastUpdated = editedProjectDto.lastUpdated;
+            existingProject.lastUpdated = DateTime.Today;
             existingProject.Notes = editedProjectDto.Notes;
-            existingProject.startDate = editedProjectDto.startDate;
+            //existingProject.startDate = editedProjectDto.startDate;
             existingProject.endDate = editedProjectDto.endDate;
             // Update other properties as needed
 
