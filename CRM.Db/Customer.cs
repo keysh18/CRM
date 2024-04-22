@@ -22,7 +22,7 @@ namespace CRM.Db
 
         public int status { get; set; }
 
-        public float Budget { get; set; }
+        public string Budget { get; set; }
 
         public string Project { get; set; }
 
