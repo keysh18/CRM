@@ -20,6 +20,14 @@ namespace CRM.Db
 
         public string PhoneNumber { get; set; }
 
-        public virtual List<Project> Projects { get; set; }
+        public int status { get; set; }
+
+        public float Budget { get; set; }
+
+        public string Project { get; set; }
+
+        public string LastUpdated { get; set; }
+
+        public string Notes { get; set; }
     }
 }

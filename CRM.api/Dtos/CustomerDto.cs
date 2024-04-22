@@ -11,5 +11,15 @@ namespace CRM.api.Dtos
         public string Company { get; set; }
 
         public string PhoneNumber { get; set; }
+        
+        public int status { get; set; }
+
+        public float Budget { get; set; }
+
+        public string Project { get; set; }
+
+        public string LastUpdated { get; set; }
+
+        public string Notes { get; set; }
     }
 }

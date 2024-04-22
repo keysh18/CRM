@@ -29,7 +29,12 @@ namespace CRM.api.Services
                 Name = customerDto.Name,
                 Email = customerDto.Email,
                 Company = customerDto.Company,
-                PhoneNumber = customerDto.PhoneNumber
+                PhoneNumber = customerDto.PhoneNumber,
+                status = customerDto.status,
+                Budget = customerDto.Budget,
+                Project = customerDto.Project,
+                LastUpdated = customerDto.LastUpdated,
+                Notes = customerDto.Notes
                 // Populate other properties as needed
             };
 
@@ -59,6 +64,10 @@ namespace CRM.api.Services
             existingCustomer.Email = editedCustomerDto.Email;
             existingCustomer.Company = editedCustomerDto.Company;
             existingCustomer.PhoneNumber = editedCustomerDto.PhoneNumber;
+            existingCustomer.status = editedCustomerDto.status;
+            existingCustomer.Budget = editedCustomerDto.Budget;
+            existingCustomer.Project = editedCustomerDto.Project;
+            existingCustomer.Notes = editedCustomerDto.Notes;
             // Update other properties as needed
 
             // Save changes asynchronously
