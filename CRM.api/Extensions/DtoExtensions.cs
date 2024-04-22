@@ -13,7 +13,12 @@ public static class DtoExtensions
             Name = customer.Name,
             Email = customer.Email,
             Company = customer.Company,
-            PhoneNumber = customer.PhoneNumber
+            PhoneNumber = customer.PhoneNumber,
+            status = customer.status,
+            Budget = customer.Budget,
+            Project = customer.Project,
+            LastUpdated = customer.LastUpdated,
+            Notes = customer.Notes
             //TODO: Add additional properties here.
         };
     }
